@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  has_many :user_event 
+  has_many :user_event
 end
