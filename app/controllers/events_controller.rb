@@ -18,6 +18,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def all
+  end
+
   private
     def events_params
       params.require(:event).permit(:event_date, :desc)
