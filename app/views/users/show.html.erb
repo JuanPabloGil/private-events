@@ -10,6 +10,17 @@
       <h1>Email:
         <%= @user.email %>
       </h1>
+      <div>
+       <h2>Events:</h2>
+         <% @user.created_events.each do |event| %>
+           <div class="flex">
+            <h5><%= event.id %></h5>
+            <h5>Date: <%= event.event_date %></h5>
+           </div>
+        </div>
+
+      <% end %>
+      </div>
     </section>
   </aside>
 </div>
