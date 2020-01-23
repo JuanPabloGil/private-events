@@ -1,7 +1,6 @@
-<%= simple_form_for @event do |f| %>
-<%= f.input :name %>
-<%= f.input :location %>
-<%= f.input :date %>
+<%= form_for @event do |f| %>
+<%= f.datetime_local_field :event_date %>
+<%= f.text_area :desc %>
 
 <%= f.submit 'Create Event'%>
 
