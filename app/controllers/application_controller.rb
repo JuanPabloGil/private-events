@@ -36,8 +36,4 @@ class ApplicationController < ActionController::Base
     past
   end
 
-  def assist_event(event)
-    user_events.create!(event_id: event.id)
-  end
-
 end
