@@ -3,3 +3,7 @@
 <p> <%= @event.desc %> </p>
 <h2> Event creator </h2>
 <p> <%= @event.creator.name %> </p>
+<h4>attendees</h4>
+<% @event.users.each do |user| %>
+<p> <%= user.name %> </p>
+<% end %>
