@@ -26,7 +26,6 @@ class ApplicationController < ActionController::Base
       upcoming << event if event.event_date >= Time.zone.now
     end
     upcoming
-
   end
 
   def past_events
