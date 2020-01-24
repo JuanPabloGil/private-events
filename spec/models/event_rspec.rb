@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Event, type: :model do
   let(:user) { User.new(name: "user1", email: "user1@example.com") }
-  let(:event) { Event.new(desc: "desc", event_date: "1980/10/10") }
+  let(:event) { Event.new(desc: "the previous description was too short", event_date: "1980/10/10") }
 
   it "Checks if Event model is valid" do
     user.save
@@ -33,8 +33,8 @@ RSpec.describe Event, type: :model do
       expect(event).not_to be_valid
     end
 
-    it "Checks if the event date its prescent " do
-      event.event_date = ""
+    it "Checks if the event date its present " do
+      event.event_date = nil
       user.save
       event.creator_id = user.id
       expect(event).not_to be_valid
