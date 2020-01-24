@@ -21,7 +21,7 @@
   </div>
 
   <div class="text-center">
-    <% if is_attend? %>
+    <% if is_attend?@event %>
     <%= render 'layouts/cancel_button' %>
     <% else %>
     <%= render 'layouts/attend_button' %>

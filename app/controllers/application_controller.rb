@@ -36,8 +36,7 @@ class ApplicationController < ActionController::Base
     past
   end
 
-  def is_attend?
-    event = Event.find_by()
+  def is_attend?event
     if current_user.user_events.find_by(event_id: event.id)
       true
     else
