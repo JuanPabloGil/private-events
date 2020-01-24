@@ -21,11 +21,12 @@
   </div>
 
   <div class="text-center">
-    <% if current_user %>
-    <%= form_for(current_user.user_events.build(event_id: @event.id)) do |f|%>
-    <%= f.hidden_field :event_id %>
-    <%= f.submit "Attend event"%>
-    <%end%>
-    <%end%>
+    <% if is_attend? %>
+    <%= render 'layouts/cancel_button' %>
+    <% else %>
+    <%= render 'layouts/attend_button' %>
+    <% end %>
   </div>
+
+
 </div>
