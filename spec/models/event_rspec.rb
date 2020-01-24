@@ -34,7 +34,7 @@ RSpec.describe Event, type: :model do
     end
 
     it "Checks if the event date its prescent " do
-      event.date = ""
+      event.event_date = ""
       user.save
       event.creator_id = user.id
       expect(event).not_to be_valid
