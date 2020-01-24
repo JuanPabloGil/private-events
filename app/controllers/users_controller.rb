@@ -25,13 +25,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email)
   end
 
-  def is_attend?
-    @event = Event.find(params[:user_event][:event_id])
-    if current_user.user_events.find_by(event_id: @event.id)
-      true
-    else
-      false
-    end
-  end
-
 end

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :log_in, :current_user, :log_out, :logged_in?
+  helper_method :log_in, :current_user, :log_out, :logged_in?, :is_attend?
 
   def log_in(user)
     session[:user_id] = user.id
@@ -34,6 +34,15 @@ class ApplicationController < ActionController::Base
       past << event if event.event_date < Time.zone.now
     end
     past
+  end
+
+  def is_attend?
+    event = Event.find_by()
+    if current_user.user_events.find_by(event_id: event.id)
+      true
+    else
+      false
+    end
   end
 
 end

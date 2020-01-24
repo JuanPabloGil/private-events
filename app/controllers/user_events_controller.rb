@@ -9,7 +9,7 @@ class UserEventsController < ApplicationController
   def destroy
     @event = Event.find(params[:user_event][:event_id])
     @user_ev = current_user.user_events.find_by(event_id: @event.id)
-
+    
     if @user_ev
       @user_ev.destroy
       flash[:danger] = "Not Attend"
