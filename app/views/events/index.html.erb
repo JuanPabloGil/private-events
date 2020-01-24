@@ -1,4 +1,25 @@
-<h2> All Events </h2>
-  <% @event.each do |item| %>
-    <p><%=item.id%> <%=item.desc%></p>
+
+<div class="jumbotron">
+  <h1 align="center">Showing all the events </h1>
+</div>
+
+
+<div class="col-md-12">
+  <h2>Upcoming Events</h2>
+  <% @upcoming_events.each do |event| %>
+  <div class="event">
+    <p>Description: <%=  link_to "#{event.desc}", event_path(event) %> </p>
+    <p>Date: <%= event.event_date %></p>
+  </div>
   <% end %>
+</div>
+<hr>
+<div class="col-md-12">
+  <h2>Past Events</h2>
+  <% @past_events.each do |event| %>
+  <div class="event">
+    <p>Description:  <%=  link_to "#{event.desc}", event_path(event) %> </p>
+    <p>Date: <%= event.event_date %></p>
+  </div>
+  <% end %>
+</div>
