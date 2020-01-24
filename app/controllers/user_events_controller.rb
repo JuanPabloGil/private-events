@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UserEventsController < ApplicationController
+  before_action :require_logged_in
+  
   def create
     @event = Event.find(params[:user_event][:event_id])
     current_user.user_events.create!(event_id: @event.id)
