@@ -1,26 +1,28 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>id:
-        <%= @user.id %>
-      </h1>
-      <h1>Name:
-        <%= @user.name %>
-      </h1>
-      <h1>Email:
-        <%= @user.email %>
-      </h1>
-      <div>
-       <h2>Events:</h2>
-         <% @user.created_events.each do |event| %>
-           <div class="flex">
-            <h5><%= event.id %></h5>
-            <h5>Date: <%= event.event_date %></h5>
-           </div>
-        </div>
+<aside class="col-md-12">
+  <div class="mb-4 bg-secondary">
+    <h1>id:
+      <%= @user.id %>
+    </h1>
+    <h1>Name:
+      <%= @user.name %>
+    </h1>
+    <h1>Email:
+      <%= @user.email %>
+    </h1>
 
-      <% end %>
-      </div>
-    </section>
-  </aside>
+  </div>
+</aside>
+<div class="container">
+  <div class="row">
+  <div class ="bg-light border rounded col-12">
+    <h2 class="border-bottom m-0 text-center">Events</h2>
+    <% @user.created_events.each do |event| %>
+    <div class="d-flex border">
+      <h5 class="border-right p-2 m-0"><%= event.id %></h5>
+      <h5 class="p-2 m-0"><%= event.event_date %></h5>
+      <h5 class="p-2 border-left m-0"><%=event.desc%> </h5>
+    </div>
+    <% end %>
+  </div>
+</div>
 </div>
