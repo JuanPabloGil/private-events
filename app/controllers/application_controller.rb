@@ -1,14 +1,14 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-  helper_method :log_in, :current_user, :log_out, :logged_in?, :is_attend?
+  helper_method :log_in, :current_user, :log_out, :logged_in?, :attend?
 
   def log_in(user)
     session[:user_id] = user.id
   end
 
   def current_user
-    if session[:user_id]
-      @current_user ||= User.find_by(id: session[:user_id])
-    end
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
   def logged_in?
@@ -36,12 +36,11 @@ class ApplicationController < ActionController::Base
     past
   end
 
-  def is_attend?event
+  def attend?(event)
     if current_user.user_events.find_by(event_id: event.id)
       true
     else
       false
     end
   end
-
 end

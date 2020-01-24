@@ -1,5 +1,6 @@
-class EventsController < ApplicationController
+# frozen_string_literal: true
 
+class EventsController < ApplicationController
   def index
     @upcoming_events = Event.upcoming
     @past_events = Event.past
@@ -17,7 +18,7 @@ class EventsController < ApplicationController
     @event = current_user.created_events.build(events_params)
 
     if @event.save
-      flash[:success] = "Event created succesfully"
+      flash[:success] = 'Event created succesfully'
       redirect_to @event
     else
       render 'new'
@@ -25,8 +26,8 @@ class EventsController < ApplicationController
   end
 
   private
+
   def events_params
     params.require(:event).permit(:event_date, :desc)
   end
-
 end
