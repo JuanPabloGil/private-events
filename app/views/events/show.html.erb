@@ -12,7 +12,7 @@
       <h3 align="center"> Attendees:</h3>
       <% if @event.users.any? %>
       <% @event.users.each do |attendee| %>
-      <p align="center"><%= attendee.username %></p>
+      <p align="center"><%= attendee.name %></p>
       <%end %>
       <% else %>
       <p>No attendees</p>
@@ -22,10 +22,10 @@
 
   <div class="text-center">
     <% if current_user %>
-      <%= form_for(current_user.user_events.build(event_id: @event.id)) do |f|%>
-      <%= f.hidden_field :event_id %>
-      <%= f.submit "Attend event"%>
-      <%end%>
+    <%= form_for(current_user.user_events.build(event_id: @event.id)) do |f|%>
+    <%= f.hidden_field :event_id %>
+    <%= f.submit "Attend event"%>
+    <%end%>
     <%end%>
   </div>
 </div>
