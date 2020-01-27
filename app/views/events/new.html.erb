@@ -1,5 +1,7 @@
 <%= form_for @event do |f| %>
-<%= f.datetime_local_field :event_date %>
+<% #f.text_field :event_date, :placeholder => 'dd/mm/yyyy', class: 'form-control datepicker' %>
+<%= f.date_field :event_date, as: :date, value: f.object.try(:strftime,"%c"), class: 'form-control' %>
+<%= f.time_field :event_date %>
 <%= f.text_area :desc %>
 
 <%= f.submit 'Create Event'%>
