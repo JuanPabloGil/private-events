@@ -1,10 +1,11 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light border">
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav">
       <li ><%= link_to "Home", root_path , class:"nav-item nav-link active" %></li>
       <li><%= link_to "Events", events_path , class:"nav-item nav-link active"%></li>
       <% if logged_in? %>
       <li><%= link_to "Profile", current_user, class: "nav-item nav-link active" %> </li>
+      <li><%= link_to "New Event", new_event_path, class: "nav-item nav-link active" %> </li>
       <% end %>
 
     </div>
