@@ -2,7 +2,7 @@
 
 class EventsController < ApplicationController
   before_action :require_logged_in
-  
+
   def index
     @upcoming_events = Event.upcoming
     @past_events = Event.past
