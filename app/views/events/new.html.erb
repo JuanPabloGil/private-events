@@ -3,7 +3,7 @@
   <%= form_for @event do |f| %>
   <%= f.label "Set the date and time of your event " %><br>
 
-  <span><%= datetime_local_field :event_date , class: 'form-control date-form' %></span>
+  <span><%= f.datetime_local_field :event_date , class: 'form-control date-form' %></span>
   <br>
   <%= f.label "Give us a description of your event " %>
   <br>
