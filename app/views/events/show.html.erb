@@ -1,0 +1,29 @@
+
+<div class="jumbotron">
+  <h1 align="center"> Event Details</h1>
+
+  <div class=" row" align="center" >
+    <div class="col-md-6">
+      <h5 align="center">Creator: <%= link_to "#{@event.creator.name}", user_path(@event.creator.id) %> </h5>
+      <h5>Date: <%= @event.event_date %></h5>
+      <h5>Description: <%= @event.desc %></h5>
+    </div>
+    <div class="col-md-6">
+      <h3 align="center"> Attendees:</h3>
+
+      <% @event.users.each do |attendee| %>
+      <p align="center"><%= attendee.name %></p>
+      <%end %>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <% if attend?@event %>
+    <%= render 'layouts/cancel_button' %>
+    <% else %>
+    <%= render 'layouts/attend_button' %>
+    <% end %>
+  </div>
+
+
+</div>
